@@ -2,7 +2,9 @@ defmodule TalkWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", TalkWeb.RoomChannel
+  channel "room:lobby", TalkWeb.RoomChannel
+  channel "chat:lobby", TalkWeb.ChatChannel
+  channel "slide:lobby", TalkWeb.SlideChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

@@ -19,7 +19,7 @@
             <img width="50" src="<%= static_path(@conn, "/images/elixir-logo.png") %>" />
             ElixirConf Recap
           </h2>
-          <span id="viewers"></span>
+          <span id="currentViews"></span>
           <i class="glyphicon glyphicon-flash" aria-hidden="true"></i> Viewers
         </div>
       </header>

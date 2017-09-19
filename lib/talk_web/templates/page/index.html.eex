@@ -11,7 +11,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages">
+    <a class="nav-link" data-toggle="tab" href="#presenceDiv" role="tab" aria-controls="messages">
       Presence
     </a>
   </li>
@@ -19,7 +19,21 @@
 
 <div class="tab-content">
   <div class="tab-pane active" id="home" role="tabpanel">Home</div>
-  <div class="tab-pane" id="profile" role="tabpanel">Chat</div>
-  <div class="tab-pane" id="messages" role="tabpanel">List</div>
+  <div class="tab-pane" id="profile" role="tabpanel">
+    <div id="messages" class="row" style="min-height:300px;">
+    </div>
+    <div class="row">
+    <div class="col-sm-11">
+      <input id="message-input" class="form-control" />
+    </div><!-- /.col-lg-6 -->
+    <div class="col-sm-1">
+      <button class="btn btn-primary" id="submitMessage">Send</button>
+    </div>
+  </div><!-- /.row -->
+  </div>
+  <div class="tab-pane" id="presenceDiv" role="tabpanel">
+    <ul id="presenceList" class="list-group">
+    </ul>
+  </div>
 </div>
 </div>
