@@ -19,6 +19,7 @@
 
 <div class="tab-content">
   <div class="tab-pane active" id="home" role="tabpanel">
+    <button class="btn btn-primary" id="back">< Back</button> <button class="btn btn-primary" id="next">Next ></button>
     <img id="slideImage" src="https://s3.amazonaws.com/elixirtalk/slide_0.png" />
   </div>
   <div class="tab-pane" id="profile" role="tabpanel">

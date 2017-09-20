@@ -22,6 +22,18 @@ defmodule TalkWeb.SlideChannel do
     {:noreply, socket}
   end
 
+  def handle_in("new:msg", msg, socket) do
+    case msg["action"] do
+      "add" ->
+        Agent.update(:slide_state, fn number -> number+1 end)
+      "subtract" ->
+        Agent.update(:slide_state, fn number -> number-1 end)
+    end
+    slide = Agent.get(:slide_state, fn number -> number end)
+    broadcast! socket, "new:msg", %{slide: slide}
+    {:reply, {:ok, %{slide: slide}}, socket}
+  end
+
   # Add authorization logic here as required.
   defp authorized?(_payload) do
     true

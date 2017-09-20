@@ -41,6 +41,9 @@ window.onload = function() {
   var $submitMessage = $("#submitMessage");
   var $currentViewers = $("#currentViews");
   var $presenceList = $("#presenceList");
+  var $back = $("#back");
+  var $next = $("#next");
+  var $slideImage = $("#slideImage");
 
 
   roomChannel.on("presence_state", state => {
@@ -58,7 +61,7 @@ window.onload = function() {
       var element = document.getElementById(key.toString())
       if (element) {
         element.innerHTML = "<i class='glyphicon glyphicon-ok-circle'></i> " + key.toString()
-      } 
+      }
     }
     for (var [key, value] of Object.entries(diff.leaves)) {
       var element = document.getElementById(key.toString())
@@ -80,6 +83,19 @@ window.onload = function() {
   $submitMessage.on("click", e => {
     chatChannel.push("new:msg", {user: getCookie("username"), body: $input.val()})
     $input.val("")
+  })
+
+  $next.on("click", e => {
+    slideChannel.push("new:msg", {action: "add"})
+  })
+
+  $back.on("click", e => {
+    slideChannel.push("new:msg", {action: "subtract"})
+  })
+
+  slideChannel.on("new:msg", msg => {
+    var imageSrc = "https://s3.amazonaws.com/elixirtalk/slide_"+ msg["slide"] +".png"
+    $("#slideImage").attr("src", imageSrc)
   })
 
   chatChannel.on("new:msg", msg => {
